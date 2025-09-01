@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Rotating Cube</title>
+<style>
+    body {
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        color: white;
+        font-family: Arial, sans-serif;
+    }
+
+    .animation-container {
+        perspective: 800px;
+    }
+
+    .cube {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        transform-style: preserve-3d;
+        animation: cubeRotate 8s infinite linear;
+    }
+
+    .cube-face {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.6);
+        border: 2px solid cyan;
+        box-shadow: 0 0 20px cyan;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .front  { transform: rotateY(0deg) translateZ(100px); }
+    .back   { transform: rotateY(180deg) translateZ(100px); }
+    .right  { transform: rotateY(90deg) translateZ(100px); }
+    .left   { transform: rotateY(-90deg) translateZ(100px); }
+    .top    { transform: rotateX(90deg) translateZ(100px); }
+    .bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+    @keyframes cubeRotate {
+        from { transform: rotateX(0deg) rotateY(0deg); }
+        to { transform: rotateX(360deg) rotateY(360deg); }
+    }
+</style>
+</head>
+<body>
+
+<div class="animation-container">
+    <div class="cube">
+        <div class="cube-face front">WELCOME</div>
+        <div class="cube-face back">WELCOME</div>
+        <div class="cube-face right">WELCOME</div>
+        <div class="cube-face left">WELCOME</div>
+        <div class="cube-face top">WELCOME</div>
+        <div class="cube-face bottom">WELCOME</div>
+    </div>
+</div>
+
+</body>
+</html>
